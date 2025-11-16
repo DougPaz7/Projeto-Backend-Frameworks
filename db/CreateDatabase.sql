@@ -1,13 +1,12 @@
-CREATE DATABASE projeto;
+CREATE DATABASE todo_db;
 
-USE projeto;
+USE todo_db;
 
-CREATE TABLE carros (
-    id integer not null auto_increment,
-    marca varchar(100),
-    modelo varchar(100),
-    ano integer,
-    PRIMARY KEY (id)
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 SET character_set_client = utf8;
@@ -15,8 +14,6 @@ SET character_set_connection = utf8;
 SET character_set_results = utf8;
 SET collation_connection = utf8_general_ci;
 
-INSERT INTO carros (marca, modelo, ano) VALUES ('Fiat', 'Marea', 1999);
-INSERT INTO carros (marca, modelo, ano) VALUES ('Fiat', 'Uno', 1992);
-INSERT INTO carros (marca, modelo, ano) VALUES ('Ford', 'Escort', 1985);
-INSERT INTO carros (marca, modelo, ano) VALUES ('Chevrolet', 'Chevette', 1978);
-INSERT INTO carros (marca, modelo, ano) VALUES ('Volkswagen', 'Fusca', 1962);
+INSERT INTO tasks (title, completed) VALUES ('Minha tarefa já concluída', 1);
+INSERT INTO tasks (title, completed) VALUES ('Minha tarefa já incompleta', 0);
+INSERT INTO tasks (title, completed) VALUES ('Minha outra tarefa', 0);
