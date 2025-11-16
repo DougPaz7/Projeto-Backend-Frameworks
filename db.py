@@ -1,11 +1,15 @@
-import mysql.connector
+import mysql.connector 
 from mysql.connector import Error
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '12345678',
-    'database': 'todo_db',
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_DATABASE')
 }
 
 def get_connection():
